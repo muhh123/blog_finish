@@ -19,6 +19,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from blog.views import PostViewSet
 
+#handles the posts crud 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet)
 
@@ -26,4 +27,5 @@ router.register(r'posts', PostViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/auth/', include('blog.urls')),
 ]
