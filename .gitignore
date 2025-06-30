@@ -1,2 +1,24 @@
+# Python bytecode
 *.pyc
 __pycache__/
+
+# Django DB (if using sqlite)
+db.sqlite3
+
+# Env file (contains secrets like API keys)
+.env
+
+# Django migrations (optional, ignore if you don’t want to track them)
+**/migrations/*.py
+!*/migrations/__init__.py
+
+# Logs
+*.log
+
+# IDE/editor config
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
