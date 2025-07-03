@@ -6,14 +6,21 @@ from django.contrib.auth.models import User
 #I learned that serializer is like my translator..
 #make posts into json
 class PostSerializer(serializers.ModelSerializer):
+   
+    author = serializers.ReadOnlyField(source='author.username')
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ['id', 'title', 'content', 'created_at', 'author']
+        read_only_fields = ['id', 'created_at', 'author']
+
+
+
+
 
 
 class RegisterSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
 
+    password = serializers.CharField(write_only=True)
     class Meta:
         model = User
         fields = ['username', 'password']
